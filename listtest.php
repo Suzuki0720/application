@@ -244,21 +244,53 @@ if( $file_handle = fopen( FILENAME,'r') ) {
             <h3><?php echo $value['list_name']; ?></h3>
             <time><?php echo date('Y年m月d日 H:i', strtotime($value['post_date'])); ?></time>
         </div>
+	    
 	<?php
-	$starturl = 1;
-	//プレイリスト
-	if(isset($_POST['nextBtn'])){
-	$starturl++;
-	}
-	//previousボタンが押された時の処理
-	else if(isset($_POST['previousBtn'])){
-	$starturl--;
-	}
+	//動画コードをphpに受け渡し
+	$youtube_url1 = $value['url_name1'];
+	$youtube_url2 = $value['url_name2'];
+	$youtube_url3 = $value['url_name3'];
 	?>
+	    
+	<script type="text/javascript">
+	/*現時点 コメントアウト中
+	
+	//phpからjavascriptへ動画コードの受け取り
+	var url1 = <?php echo $youtube_url1; ?>
+	var url2 = <?php echo $youtube_url2; ?>
+	var url3 = <?php echo $youtube_url3; ?>
+
+	//urlをキューに入れる
+	const queue = [];
+	queue.push(url1);
+	queue.push(url2);
+	queue.push(url3);
+
+	//デキューしたものをstartmovieへ
+	var startmovie = queue.shift();
+
+	//youtubeプレイヤーの読み込み
+	var tag = document.createElement('script');
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	var player;
+
+	function onYouTubePlayerAPIReady() {
+    	player = new YT.Player('YouTube', {
+         height: '360',
+         width: '640',
+         videoId: 'M7lc1UVf-VE'
+    	});
+  	}
+	*/
+	</script>
+	
         <div class="YouTube">
             <iframe 
             width="560" height="315" 
-            src=https://www.youtube.com/embed/<?php echo $value['url_name'.$starturl.''];?>
+            src=https://www.youtube.com/embed?playlist=<?php echo $value['url_name1'];?>,<?php echo $value['url_name2'];?>,<?php echo $value['url_name3'];?>
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
