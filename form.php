@@ -138,14 +138,15 @@ if( $file_handle = fopen( FILENAME,'r') ) {
               <p>プレイリスト作成＆投稿</p>
             </div>
     <form method="post">
-    <div>
-        <label for="list_name">プレイリスト名</label>
-		<input id="list_name" type="text" name="list_name" value="">
-    </div>
 	<div>
-		<label for="view_name">投稿者名</label>
-		<input id="view_name" type="text" name="view_name" value="">
+	<label for="view_name">投稿者名</label>
+	<input id="view_name" type="text" name="view_name" value="">
 	</div>
+	    
+    	<div>
+        <label for="list_name">プレイリスト名</label>
+	<input id="list_name" type="text" name="list_name" value="">
+        </div>
 	    
     	<div>
 		<label for="url_name">URL</label>
@@ -183,6 +184,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
       color:#000;
       text-decoration: none;
       margin: 0 auto;
+      position: absolute; top:200px; left:300px;
     }
 
   .home:hover{
@@ -230,24 +232,45 @@ if( $file_handle = fopen( FILENAME,'r') ) {
     border-color: #94D6DA;
     border-radius: 10%;
     border-style: solid;
+    opacity: 0.8;
+  }
+	
+#view_name:hover{
+    opacity: 1.0;
   }
 
   #url_name{
     border-color: #94D6DA;
     border-radius: 10%;
     border-style: solid;
+    margin: 0 auto;
+    opacity: 0.8;
+  }
+	
+#url_name:hover{
+    opacity: 1.0;
   }
 
   #list_name{
     border-color: #94D6DA;
     border-radius: 10%;
     border-style: solid;
+    opacity: 0.8;
+  }
+	
+#list_name:hover{
+    opacity: 1.0;
   }
 
   #message{
     border-color: #94D6DA;
     border-radius: 10%;
+    opacity: 0.8;
   }	  
+
+#message:hover{
+    opacity: 1.0;
+  }
   
 </style>
 	<input id="btnen" type="submit" name="btn_submit" value="投稿">
@@ -321,7 +344,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
     height: auto;
     margin-top: 15%;
     margin-right: 5%;
-
+　　 position: relative; left: 40px;
 }
 
   #previousBtn span{
