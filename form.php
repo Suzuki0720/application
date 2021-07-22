@@ -105,7 +105,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	    <script type="text/javascript">
 	    $(function(){
 		var size = $('li').length;
-		alert(size);
+		
 		//「+」を押したら増やす
 		$('.add').click(function(){
 		    $('.addInput').append('<li><input id="url_name" type="text" name="url_name[]" value=""></li>');
