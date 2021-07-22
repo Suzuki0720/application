@@ -149,14 +149,6 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	    
     	<div>
 		<label for="url_name">URL</label>
-	    
-	<div>
-		<label for="minus"></label>
-		<a class="del" name="minus">－</a>
-		<label for="puls"></label>
-		<a class="add" name="puls">＋</a>
-	</div>
-	    
 	
 	</div>
 	
