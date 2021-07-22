@@ -132,7 +132,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
         </header>
 	    <h1>YouTubeプレイリスト掲示板</h1>
 	    
-	    <a href="home.php" class="home">HOME</a>
+	    
 
             <div class="box1">
               <p>プレイリスト作成＆投稿</p>
@@ -182,6 +182,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
       border-radius: 3px;
       color:#000;
       text-decoration: none;
+      margin: 0 auto;
     }
 
   .home:hover{
@@ -288,6 +289,8 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	<button id="previousBtn" name="previousBtn"><span>戻る</span></button>  
         <button id="nextBtn" name="nextBtn"><span>次へ</span></button>
 	</div>
+	    
+	 <a href="form.php" class="home">TOPへ</a>
 	    
 	    
 <style>
