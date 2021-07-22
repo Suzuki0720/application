@@ -13,12 +13,14 @@ $url = null;
 $youtube_url1 = null;
 $youtube_url2 = null;
 $youtube_url3 = null;
+$youtube_url4 = null;
+$youtube_url5 = null;
 $message = array();
 $message_array = array();
 $error_message = array();
 $clean = array();
 
-for($i = 1; $i < 4; $i++){
+for($i = 1; $i < 6; $i++){
 if(isset($_REQUEST["url_name".$i.""]) == true)
 {
 	/** 入力内容を取得 */
@@ -72,7 +74,7 @@ if(!empty($_POST['btn_submit'])){
         //書き込み日時を取得
         $current_date = date("Y-m-d H:i:s");
         //書き込むデータを作成
-        $data = "'".$clean['list_name']."','".$clean['view_name']."','".$youtube_url1."','".$youtube_url2."','".$youtube_url3."','".$clean['message']."','".$current_date."'\n";
+        $data = "'".$clean['list_name']."','".$clean['view_name']."','".$youtube_url1."','".$youtube_url2."','".$youtube_url3."','".$youtube_url4."','".$youtube_url5."','".$clean['message']."','".$current_date."'\n";
         //書き込み
         fwrite( $file_handle, $data);
 
@@ -91,8 +93,10 @@ if( $file_handle = fopen( FILENAME,'r') ) {
             'url_name1' => $split_data[5],
 	    'url_name2' => $split_data[7],
 	    'url_name3' => $split_data[9],
-            'message' => $split_data[11],
-            'post_date' => $split_data[13]
+	    'url_name4' => $split_data[11],
+	    'url_name5' => $split_data[13],
+            'message' => $split_data[15],
+            'post_date' => $split_data[17]
         );
         array_unshift( $message_array, $message);
     }
@@ -157,6 +161,8 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 		<li><input id="url_name1" type="text" name="url_name1" value=""></li>
 		<li><input id="url_name2" type="text" name="url_name2" value=""></li>
 		<li><input id="url_name3" type="text" name="url_name3" value=""></li>
+		<li><input id="url_name4" type="text" name="url_name4" value=""></li>
+		<li><input id="url_name5" type="text" name="url_name5" value=""></li>
         </ul>
 	</div>
 	<table>
@@ -290,7 +296,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
         <div class="YouTube">
             <iframe 
             width="560" height="315" 
-            src=https://www.youtube.com/embed?playlist=<?php echo $value['url_name1'];?>,<?php echo $value['url_name2'];?>,<?php echo $value['url_name3'];?>
+            src=https://www.youtube.com/embed?playlist=<?php echo $value['url_name1'];?>,<?php echo $value['url_name2'];?>,<?php echo $value['url_name3'];?>,<?php echo $value['url_name4'];?>,<?php echo $value['url_name5'];?>
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
