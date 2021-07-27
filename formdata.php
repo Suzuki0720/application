@@ -16,17 +16,16 @@ $message_array = array();
 $error_message = array();
 $clean = array();
 $pdo = null;
-$stmt = null;
-$res = null;
+$dsn = null;
+$user = null;
+$password = null;
 $option = null;
 
 // データベースに接続
 try{
-    $db = parse_url($_SERVER['mysql://bdb6673c5118a6:f2c51680@us-cdbr-east-04.cleardb.com/heroku_c2bc299db154065?reconnect=true']);
-    $db['board'] = ltrim($db['heroku_c2bc299db154065'],'/');
-    $dsn = "mysql:host={$db['us-cdbr-east-04.cleardb.com']};dbname={$db['board']};charset=utf8";
-    $user = $db['bdb6673c5118a6'];
-    $password = $db['f2c51680'];
+    $dsn = 'mysql:dbname=board;host=us-cdbr-east-04.cleardb.com;charset=utf8';
+    $user = 'bdb6673c5118a6';
+    $password = 'f2c51680';
     $option = array(
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::MYSQL_ATTR_MULTI_STATEMENTS => false,
