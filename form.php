@@ -224,6 +224,14 @@ if( $file_handle = fopen( FILENAME,'r') ) {
     list-style: none;
   }
 	
+	
+  .addInput{
+	backgroud: #fff;
+	padding: 10px;
+	text-align: center;
+     }
+	
+	
   .home{
       font-size: 20px;
       padding: 2px 20px;
