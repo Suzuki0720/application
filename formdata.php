@@ -34,9 +34,6 @@ $password = null;
 $option = null;
 $stmt = null;
 
-ini_set("display_errors", On);
-error_reporting(E_ALL);
-
 // データベースに接続
 try{
     $host = "us-cdbr-east-04.cleardb.com";
