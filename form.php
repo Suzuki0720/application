@@ -190,17 +190,6 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	    
     	<div>
 		<label for="url_name">URL</label>
-	
-	</div>
-	
-	<div>
-		<label for="minus"></label>
-		<a class="del" name="minus">－</a>
-		<label for="puls"></label>
-		<a class="add" name="puls">＋</a>
-	</div>
-	    
-	    <ul class="addInput">
 		<li><input id="url_name" type="text" name="url_name1" value=""></li>
 		<li><input id="url_name" type="text" name="url_name2" value=""></li>
 		<li><input id="url_name" type="text" name="url_name3" value=""></li>
@@ -211,6 +200,17 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 		<li><input id="url_name" type="text" name="url_name8" value=""></li>
 		<li><input id="url_name" type="text" name="url_name9" value=""></li>
 		<li><input id="url_name" type="text" name="url_name10" value=""></li>
+	</div>
+	
+	<div>
+		<label for="minus"></label>
+		<a class="del" name="minus">－</a>
+		<label for="puls"></label>
+		<a class="add" name="puls">＋</a>
+	</div>
+	    
+	    <ul class="addInput">
+		
         </ul>
 	    
 	<div>
