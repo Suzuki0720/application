@@ -10,6 +10,9 @@ $data = null;
 $file_handle = null;
 $split_data = null;
 $url = null;
+$icolcount = 0;
+//countは最大プレイリスト数を入力
+$count = 5;
 $youtube_url1 = null;
 $youtube_url2 = null;
 $youtube_url3 = null;
@@ -39,6 +42,23 @@ if(isset($_REQUEST["url_name".$i.""]) == true)
 		${'youtube_url'.$i.''} = substr(${'youtube_url'.$i.''}, (strpos(${'youtube_url'.$i.''}, "youtu.be/")+9));
 	}
 
+}
+}
+
+//videoIDに=が含まれていたとき、そのvideoIDを後ろに持ってくる
+for($j = 1; $j <= $count; $j++){
+ if(strpos(${'youtube_url'.$j.''}, '=') !== false){
+  //k < プレイリストの最大数
+  for($k = 5; $k > 0; $k++){
+   if(strpos(${'youtube_url'.$k.''}, '=') !== false){
+  }else{
+   $youtube_urlsafe = ${'youtube_url'.$j.''};
+   ${'youtube_url'.$j.''} = ${'youtube_url'.$count.''};
+   ${'youtube_url'.$count.''} = $youtube_urlsafe;
+   $count--;
+   break;
+  }
+ }
 }
 }
 
