@@ -191,15 +191,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
     	<div>
 		<label for="url_name">URL</label>
 		<li><input id="url_name" type="text" name="url_name1" value=""></li>
-		<li><input id="url_name" type="text" name="url_name2" value=""></li>
-		<li><input id="url_name" type="text" name="url_name3" value=""></li>
-		<li><input id="url_name" type="text" name="url_name4" value=""></li>
-		<li><input id="url_name" type="text" name="url_name5" value=""></li>
-		<li><input id="url_name" type="text" name="url_name6" value=""></li>
-		<li><input id="url_name" type="text" name="url_name7" value=""></li>
-		<li><input id="url_name" type="text" name="url_name8" value=""></li>
-		<li><input id="url_name" type="text" name="url_name9" value=""></li>
-		<li><input id="url_name" type="text" name="url_name10" value=""></li>
+		
 	</div>
 	
 	<div>
@@ -210,7 +202,15 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	</div>
 	    
 	    <ul class="addInput">
-		
+		<li><input id="url_name" type="text" name="url_name2" value=""></li>
+		<li><input id="url_name" type="text" name="url_name3" value=""></li>
+		<li><input id="url_name" type="text" name="url_name4" value=""></li>
+		<li><input id="url_name" type="text" name="url_name5" value=""></li>
+		<li><input id="url_name" type="text" name="url_name6" value=""></li>
+		<li><input id="url_name" type="text" name="url_name7" value=""></li>
+		<li><input id="url_name" type="text" name="url_name8" value=""></li>
+		<li><input id="url_name" type="text" name="url_name9" value=""></li>
+		<li><input id="url_name" type="text" name="url_name10" value=""></li>
         </ul>
 	    
 	<div>
