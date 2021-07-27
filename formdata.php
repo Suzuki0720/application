@@ -34,6 +34,9 @@ $password = null;
 $option = null;
 $stmt = null;
 
+ini_set("display_errors", On);
+error_reporting(E_ALL);
+
 // データベースに接続
 try{
     $host = "us-cdbr-east-04.cleardb.com";
@@ -110,10 +113,10 @@ if(!empty($_POST['btn_submit'])){
         $clean['message'] = preg_replace( '/\\r\\n|\\n|\\r/', '<br>', $clean['message']);
 	}
     
-    if( empty($_POST['url_name']) ) {
+    if( empty($_POST['url_name1']) ) {
 		$error_message[] = 'URLを入れてください。';
 	}else {
-		$clean['url_name'] = htmlspecialchars( $_POST['url_name1'], ENT_QUOTES, 'UTF-8');
+		$clean['url_name1'] = htmlspecialchars( $_POST['url_name1'], ENT_QUOTES, 'UTF-8');
 	}
     if(empty($error_message)){
     /*
@@ -193,7 +196,7 @@ if(!empty($_POST['btn_submit'])){
             youtube_url7,
             youtube_url8,
             youtube_url9,
-            youtube_url10,message,post_date FROM message ORDER BY post_date DESC";
+            youtube_url10,message,post_date FROM  ORDER BY post_date DESC";
             $message_array = $pdo->query($sql);
         }
 
@@ -295,16 +298,16 @@ if(!empty($_POST['btn_submit'])){
         <div class="YouTube">
             <iframe 
             width="560" height="315" 
-            src=https://www.youtube.com/embed?playlist=<?php echo $value['url_name1'];?>,
-            <?php echo $value['url_name2'];?>,
-            <?php echo $value['url_name3'];?>,
-            <?php echo $value['url_name4'];?>,
-            <?php echo $value['url_name5'];?>,
-            <?php echo $value['url_name6'];?>,
-            <?php echo $value['url_name7'];?>,
-            <?php echo $value['url_name8'];?>,
-            <?php echo $value['url_name9'];?>,
-            <?php echo $value['url_name10'];?>
+            src=https://www.youtube.com/embed?playlist=<?php echo $value['youtube_url1'];?>,
+            <?php echo $value['youtube_url2'];?>,
+            <?php echo $value['youtube_url3'];?>,
+            <?php echo $value['youtube_url4'];?>,
+            <?php echo $value['youtube_url5'];?>,
+            <?php echo $value['youtube_url6'];?>,
+            <?php echo $value['youtube_url7'];?>,
+            <?php echo $value['youtube_url8'];?>,
+            <?php echo $value['youtube_url9'];?>,
+            <?php echo $value['youtube_url10'];?>
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
