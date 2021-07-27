@@ -362,7 +362,6 @@ if( $file_handle = fopen( FILENAME,'r') ) {
         <button id="nextBtn" name="nextBtn"><span>次へ</span></button>
 	</div>
 	    
-	 <a href="index.php" class="home">TOPへ</a>
 	    
 	    
 <style>
