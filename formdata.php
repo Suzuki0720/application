@@ -23,12 +23,14 @@ $option = null;
 
 // データベースに接続
 try{
-    $dsn = 'mysql:dbname=message;host=us-cdbr-east-04.cleardb.com;charset=utf8';
+    $host = "us-cdbr-east-04.cleardb.com";
     $user = 'bdb6673c5118a6';
     $password = 'f2c51680';
+    $dsn = 'mysql:dbname=heroku_c2bc299db154065;host=us-cdbr-east-04.cleardb.com;charset=utf8';
     $option = array(
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::MYSQL_ATTR_MULTI_STATEMENTS => false,
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
 	);
     $pdo = new PDO($dsn, $user, $password,$option);
 } catch(PDOException $e) {
