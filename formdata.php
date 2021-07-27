@@ -9,6 +9,18 @@ $current_date = null;
 $data = null;
 $file_handle = null;
 $split_data = null;
+$youtube_url1 = null;
+$youtube_url2 = null;
+$youtube_url3 = null;
+$youtube_url4 = null;
+$youtube_url5 = null;
+$youtube_url6 = null;
+$youtube_url7 = null;
+$youtube_url8 = null;
+$youtube_url9 = null;
+$youtube_url10 = null;
+$youtube_urlsafe = null;
+$youtube_url = null;
 $url = null;
 $youtube_url = null;
 $message = array();
@@ -20,6 +32,7 @@ $dsn = null;
 $user = null;
 $password = null;
 $option = null;
+$stmt = null;
 
 // データベースに接続
 try{
@@ -39,26 +52,42 @@ try{
     $error_message[] = $e->getMessage();
 }
 
-
-if(isset($_REQUEST["url_name"]) == true)
-{
-	/** 入力内容を取得 */
-	$url = $youtube_url = $_REQUEST["url_name"];
-
-	$url = htmlspecialchars($url, ENT_QUOTES);
-
-	if (strpos($youtube_url, "watch") != false)	/* ページURL ? */
-	{
-		/** コードを変換 */
-		$youtube_url = substr($youtube_url, (strpos($youtube_url, "=")+1));
-	}
-	else
-	{
-		/** 短縮URL用を変換 */
-		$youtube_url = substr($youtube_url, (strpos($youtube_url, "youtu.be/")+9));
-	}
-
+for($i = 1; $i < 11; $i++){
+    if(isset($_REQUEST["url_name".$i.""]) == true)
+    {
+        /** 入力内容を取得 */
+        $url = ${'youtube_url'.$i.''} = $_REQUEST["url_name".$i.""];
+    
+        $url = htmlspecialchars($url, ENT_QUOTES);
+    
+        if (strpos(${'youtube_url'.$i.''}, "watch") != false)	/* ページURL ? */
+        {
+            /** コードを変換 */
+            ${'youtube_url'.$i.''} = substr(${'youtube_url'.$i.''}, (strpos(${'youtube_url'.$i.''}, "=")+1));
+        }
+        else
+        {
+            /** 短縮URL用を変換 */
+            ${'youtube_url'.$i.''} = substr(${'youtube_url'.$i.''}, (strpos(${'youtube_url'.$i.''}, "youtu.be/")+9));
+        }
+    }
 }
+
+for($j = 1; $j <= $count; $j++){
+    if(strpos(${'youtube_url'.$j.''}, '=') !== false){
+     //k = プレイリストの最大数
+     for($k = 10; $k > 0; $k++){
+      if(strpos(${'youtube_url'.$k.''}, '=') !== false){
+     }else{
+      $youtube_urlsafe = ${'youtube_url'.$j.''};
+      ${'youtube_url'.$j.''} = ${'youtube_url'.$count.''};
+      ${'youtube_url'.$count.''} = $youtube_urlsafe;
+      $count--;
+      break;
+     }
+    }
+   }
+   }
 
 if(!empty($_POST['btn_submit'])){
     //表示名の入力チェック
@@ -84,7 +113,7 @@ if(!empty($_POST['btn_submit'])){
     if( empty($_POST['url_name']) ) {
 		$error_message[] = 'URLを入れてください。';
 	}else {
-		$clean['url_name'] = htmlspecialchars( $_POST['url_name'], ENT_QUOTES, 'UTF-8');
+		$clean['url_name'] = htmlspecialchars( $_POST['url_name1'], ENT_QUOTES, 'UTF-8');
 	}
     if(empty($error_message)){
     /*
@@ -102,12 +131,41 @@ if(!empty($_POST['btn_submit'])){
             $current_date = date("Y-m-d H:i:s");
 
             // SQL作成
-            $stmt = $pdo->prepare("INSERT INTO message (list_name, view_name, youtube_url, message, post_date) VALUES (:list_name, :view_name, :youtube_url, :message, :post_date)");
+            $stmt = $pdo->prepare("INSERT INTO message (list_name, view_name,
+            youtube_url1,
+            youtube_url2,
+            youtube_url3,
+            youtube_url4,
+            youtube_url5,
+            youtube_url6,
+            youtube_url7,
+            youtube_url8,
+            youtube_url9,
+            youtube_url10, message, post_date) VALUES (:list_name, :view_name, 
+            :youtube_url1,
+            :youtube_url2,
+            :youtube_url3,
+            :youtube_url4,
+            :youtube_url5,
+            :youtube_url6,
+            :youtube_url7,
+            :youtube_url8,
+            :youtube_url9,
+            :youtube_url10, :message, :post_date)");
 
             // 値をセット
             $stmt->bindParam( ':list_name', $clean['list_name'], PDO::PARAM_STR);
             $stmt->bindParam( ':view_name', $clean['view_name'], PDO::PARAM_STR);
-            $stmt->bindParam( ':youtube_url', $youtube_url, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url1', $youtube_url1, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url2', $youtube_url2, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url3', $youtube_url3, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url4', $youtube_url4, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url5', $youtube_url5, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url6', $youtube_url6, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url7', $youtube_url7, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url8', $youtube_url8, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url9', $youtube_url9, PDO::PARAM_STR);
+            $stmt->bindParam( ':youtube_url10', $youtube_url10, PDO::PARAM_STR);
             $stmt->bindParam( ':message', $clean['message'], PDO::PARAM_STR);
             $stmt->bindParam( ':post_date', $current_date, PDO::PARAM_STR);
 
@@ -128,23 +186,22 @@ if(!empty($_POST['btn_submit'])){
     $pdo = null;
 }
 //ファイルを読み込んでHTMLに返す
-if( $file_handle = fopen( FILENAME,'r') ) {
-    while( $data = fgets($file_handle) ){
-        $split_data = preg_split( '/\'/', $data);
-
-        $message = array(
-            'list_name' => $split_data[1],
-            'view_name' => $split_data[3],
-            'url_name' => $split_data[5],
-            'message' => $split_data[7],
-            'post_date' => $split_data[9]
-        );
-        array_unshift( $message_array, $message);
-    }
-
-    // ファイルを閉じる
-    fclose( $file_handle);
+if(empty($error_message)){
+    $sql = "SELECT list_name,view_name,
+    youtube_url1,
+    youtube_url2,
+    youtube_url3,
+    youtube_url4,
+    youtube_url5,
+    youtube_url6,
+    youtube_url7,
+    youtube_url8,
+    youtube_url9,
+    youtube_url10,message,post_date FROM message ORDER BY post_date DESC";
+	$message_array = $pdo->query($sql);
 }
+
+
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
@@ -199,7 +256,16 @@ if( $file_handle = fopen( FILENAME,'r') ) {
        
 		<label for="url_name">URL</label>
         <ul class="addInput">
-		<li><input id="url_name" type="text" name="url_name" value=""></li>
+		<li><input id="url_name" type="text" name="url_name1" value=""></li>
+		<li><input id="url_name" type="text" name="url_name2" value=""></li>
+		<li><input id="url_name" type="text" name="url_name3" value=""></li>
+		<li><input id="url_name" type="text" name="url_name4" value=""></li>
+		<li><input id="url_name" type="text" name="url_name5" value=""></li>
+		<li><input id="url_name" type="text" name="url_name6" value=""></li>
+		<li><input id="url_name" type="text" name="url_name7" value=""></li>
+		<li><input id="url_name" type="text" name="url_name8" value=""></li>
+		<li><input id="url_name" type="text" name="url_name9" value=""></li>
+		<li><input id="url_name" type="text" name="url_name10" value=""></li>
         </ul>
 	</div>
 	<table>
@@ -229,13 +295,22 @@ if( $file_handle = fopen( FILENAME,'r') ) {
         <div class="YouTube">
             <iframe 
             width="560" height="315" 
-            src="https://www.youtube.com/embed/<?php echo $value['url_name'];?>"
+            src=https://www.youtube.com/embed?playlist=<?php echo $value['url_name1'];?>,
+            <?php echo $value['url_name2'];?>,
+            <?php echo $value['url_name3'];?>,
+            <?php echo $value['url_name4'];?>,
+            <?php echo $value['url_name5'];?>,
+            <?php echo $value['url_name6'];?>,
+            <?php echo $value['url_name7'];?>,
+            <?php echo $value['url_name8'];?>,
+            <?php echo $value['url_name9'];?>,
+            <?php echo $value['url_name10'];?>
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe -->
         </div>
-        <p><?php echo $value['message']; ?></p>
+        <p><?php nl2br($value['message']); ?></p>
 	    <hr>
     </article>
     <?php endforeach; ?>
