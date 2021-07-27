@@ -23,7 +23,7 @@ $option = null;
 
 // データベースに接続
 try{
-    $dsn = 'mysql:dbname=Tables;host=us-cdbr-east-04.cleardb.com;charset=utf8';
+    $dsn = 'mysql:dbname=message;host=us-cdbr-east-04.cleardb.com;charset=utf8';
     $user = 'bdb6673c5118a6';
     $password = 'f2c51680';
     $option = array(
