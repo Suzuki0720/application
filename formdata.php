@@ -181,24 +181,24 @@ if(!empty($_POST['btn_submit'])){
             // プリペアドステートメントを削除
             $stmt = null;
         }
+        //ファイルを読み込んでHTMLに返す
+        if(empty($error_message)){
+            $sql = "SELECT list_name,view_name,
+            youtube_url1,
+            youtube_url2,
+            youtube_url3,
+            youtube_url4,
+            youtube_url5,
+            youtube_url6,
+            youtube_url7,
+            youtube_url8,
+            youtube_url9,
+            youtube_url10,message,post_date FROM message ORDER BY post_date DESC";
+            $message_array = $pdo->query($sql);
+        }
 
     // データベースの接続を閉じる
     $pdo = null;
-}
-//ファイルを読み込んでHTMLに返す
-if(empty($error_message)){
-    $sql = "SELECT list_name,view_name,
-    youtube_url1,
-    youtube_url2,
-    youtube_url3,
-    youtube_url4,
-    youtube_url5,
-    youtube_url6,
-    youtube_url7,
-    youtube_url8,
-    youtube_url9,
-    youtube_url10,message,post_date FROM message ORDER BY post_date DESC";
-	$message_array = $pdo->query($sql);
 }
 
 
