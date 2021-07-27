@@ -10,6 +10,8 @@ $data = null;
 $file_handle = null;
 $split_data = null;
 $url = null;
+//count = プレイリストの最大数
+$count = 10;
 $youtube_url1 = null;
 $youtube_url2 = null;
 $youtube_url3 = null;
@@ -27,7 +29,7 @@ $message_array = array();
 $error_message = array();
 $clean = array();
 
-
+//入力されたURLからvideoIDの抽出
 for($i = 1; $i < 11; $i++){
 if(isset($_REQUEST["url_name".$i.""]) == true)
 {
