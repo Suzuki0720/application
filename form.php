@@ -292,7 +292,6 @@ if( $file_handle = fopen( FILENAME,'r') ) {
     border-color: #94D6DA;
     border-radius: 10%;
     border-style: solid;
-    margin: 0 auto;
     opacity: 0.8;
   }
 	
