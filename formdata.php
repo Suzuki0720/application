@@ -193,7 +193,7 @@ if(!empty($_POST['btn_submit'])){
             youtube_url7,
             youtube_url8,
             youtube_url9,
-            youtube_url10,message,post_date FROM  ORDER BY post_date DESC";
+            youtube_url10,message,post_date FROM message ORDER BY post_date DESC";
             $message_array = $pdo->query($sql);
         }
 
