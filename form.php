@@ -190,7 +190,6 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	    
     	<div>
 		<label for="url_name">URL</label>
-		<li><input id="url_name" type="text" name="url_name1" value=""></li>
 		
 	</div>
 	
@@ -202,6 +201,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	</div>
 	    
 	    <ul class="addInput">
+		<li><input id="url_name" type="text" name="url_name1" value=""></li>
 		<li><input id="url_name" type="text" name="url_name2" value=""></li>
 		<li><input id="url_name" type="text" name="url_name3" value=""></li>
 		<li><input id="url_name" type="text" name="url_name4" value=""></li>
