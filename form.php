@@ -10,6 +10,17 @@ $data = null;
 $file_handle = null;
 $split_data = null;
 $url = null;
+$youtube_url1 = null;
+$youtube_url2 = null;
+$youtube_url3 = null;
+$youtube_url4 = null;
+$youtube_url5 = null;
+$youtube_url6 = null;
+$youtube_url7 = null;
+$youtube_url8 = null;
+$youtube_url9 = null;
+$youtube_url10 = null;
+$youtube_urlsafe = null;
 $youtube_url = null;
 $message = array();
 $message_array = array();
@@ -17,24 +28,42 @@ $error_message = array();
 $clean = array();
 
 
-if(isset($_REQUEST["url_name"]) == true)
+for($i = 1; $i < 11; $i++){
+if(isset($_REQUEST["url_name".$i.""]) == true)
 {
 	/** 入力内容を取得 */
-	$url = $youtube_url = $_REQUEST["url_name"];
+	$url = ${'youtube_url'.$i.''} = $_REQUEST["url_name".$i.""];
 
 	$url = htmlspecialchars($url, ENT_QUOTES);
 
-	if (strpos($youtube_url, "watch") != false)	/* ページURL ? */
+	if (strpos(${'youtube_url'.$i.''}, "watch") != false)	/* ページURL ? */
 	{
 		/** コードを変換 */
-		$youtube_url = substr($youtube_url, (strpos($youtube_url, "=")+1));
+		${'youtube_url'.$i.''} = substr(${'youtube_url'.$i.''}, (strpos(${'youtube_url'.$i.''}, "=")+1));
 	}
 	else
 	{
 		/** 短縮URL用を変換 */
-		$youtube_url = substr($youtube_url, (strpos($youtube_url, "youtu.be/")+9));
+		${'youtube_url'.$i.''} = substr(${'youtube_url'.$i.''}, (strpos(${'youtube_url'.$i.''}, "youtu.be/")+9));
 	}
+}
+}
 
+//videoIDに=が含まれていたとき、そのvideoIDを後ろに持ってくる
+for($j = 1; $j <= $count; $j++){
+ if(strpos(${'youtube_url'.$j.''}, '=') !== false){
+  //k = プレイリストの最大数
+  for($k = 10; $k > 0; $k++){
+   if(strpos(${'youtube_url'.$k.''}, '=') !== false){
+  }else{
+   $youtube_urlsafe = ${'youtube_url'.$j.''};
+   ${'youtube_url'.$j.''} = ${'youtube_url'.$count.''};
+   ${'youtube_url'.$count.''} = $youtube_urlsafe;
+   $count--;
+   break;
+  }
+ }
+}
 }
 
 if(!empty($_POST['btn_submit'])){
@@ -58,10 +87,10 @@ if(!empty($_POST['btn_submit'])){
         $clean['message'] = preg_replace( '/\\r\\n|\\n|\\r/', '<br>', $clean['message']);
 	}
     
-    if( empty($_POST['url_name']) ) {
+    if( empty($_POST['url_name1']) ) {
 		$error_message[] = 'URLを入れてください。';
 	}else {
-		$clean['url_name'] = htmlspecialchars( $_POST['url_name'], ENT_QUOTES, 'UTF-8');
+		$clean['url_name1'] = htmlspecialchars( $_POST['url_name1'], ENT_QUOTES, 'UTF-8');
 	}
 
     if(empty($error_message)){
@@ -69,7 +98,7 @@ if(!empty($_POST['btn_submit'])){
         //書き込み日時を取得
         $current_date = date("Y-m-d H:i:s");
         //書き込むデータを作成
-        $data = "'".$clean['list_name']."','".$clean['view_name']."','".$youtube_url."','".$clean['message']."','".$current_date."'\n";
+        $data = "'".$clean['list_name']."','".$clean['view_name']."','".$youtube_url1."','".$youtube_url2."','".$youtube_url3."','".$youtube_url4."','".$youtube_url5."','".$youtube_url6."','".$youtube_url7."','".$youtube_url8."','".$youtube_url9."','".$youtube_url10."','".$clean['message']."','".$current_date."'\n";
         //書き込み
         fwrite( $file_handle, $data);
 
@@ -85,9 +114,18 @@ if( $file_handle = fopen( FILENAME,'r') ) {
         $message = array(
             'list_name' => $split_data[1],
             'view_name' => $split_data[3],
-            'url_name' => $split_data[5],
-            'message' => $split_data[7],
-            'post_date' => $split_data[9]
+            'url_name1' => $split_data[5],
+	    'url_name2' => $split_data[7],
+	    'url_name3' => $split_data[9],
+	    'url_name4' => $split_data[11],
+	    'url_name5' => $split_data[13],
+	    'url_name6' => $split_data[15],
+	    'url_name7' => $split_data[17],
+	    'url_name8' => $split_data[19],
+	    'url_name9' => $split_data[21],
+	    'url_name10' => $split_data[23],
+            'message' => $split_data[25],
+            'post_date' => $split_data[27]
         );
         array_unshift( $message_array, $message);
     }
@@ -161,7 +199,16 @@ if( $file_handle = fopen( FILENAME,'r') ) {
 	</div>
 	    
 	    <ul class="addInput">
-		<li><input id="url_name" type="text" name="url_name" value=""></li>
+		<li><input id="url_name" type="text" name="url_name1" value=""></li>
+		<li><input id="url_name" type="text" name="url_name2" value=""></li>
+		<li><input id="url_name" type="text" name="url_name3" value=""></li>
+		<li><input id="url_name" type="text" name="url_name4" value=""></li>
+		<li><input id="url_name" type="text" name="url_name5" value=""></li>
+		<li><input id="url_name" type="text" name="url_name6" value=""></li>
+		<li><input id="url_name" type="text" name="url_name7" value=""></li>
+		<li><input id="url_name" type="text" name="url_name8" value=""></li>
+		<li><input id="url_name" type="text" name="url_name9" value=""></li>
+		<li><input id="url_name" type="text" name="url_name10" value=""></li>
         </ul>
 	    
 	<div>
@@ -288,7 +335,7 @@ if( $file_handle = fopen( FILENAME,'r') ) {
         <div class="YouTube">
             <iframe 
             width="560" height="315" 
-            src=https://www.youtube.com/embed/<?php echo $value['url_name'];?>
+            src=https://www.youtube.com/embed?playlist=<?php echo $value['url_name1'];?>,<?php echo $value['url_name2'];?>,<?php echo $value['url_name3'];?>,<?php echo $value['url_name4'];?>,<?php echo $value['url_name5'];?>,<?php echo $value['url_name6'];?>,<?php echo $value['url_name7'];?>,<?php echo $value['url_name8'];?>,<?php echo $value['url_name9'];?>,<?php echo $value['url_name10'];?>
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
