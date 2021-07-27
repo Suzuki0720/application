@@ -23,7 +23,7 @@ $option = null;
 // データベースに接続
 try{
     $db = parse_url($_SERVER['mysql://bdb6673c5118a6:f2c51680@us-cdbr-east-04.cleardb.com/heroku_c2bc299db154065?reconnect=true']);
-    $db['board'] = ltrim($db['path'],'/');
+    $db['board'] = ltrim($db['heroku_c2bc299db154065'],'/');
     $dsn = "mysql:host={$db['us-cdbr-east-04.cleardb.com']};dbname={$db['board']};charset=utf8";
     $user = $db['bdb6673c5118a6'];
     $password = $db['f2c51680'];
