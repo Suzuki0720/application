@@ -224,6 +224,7 @@ if(!empty($_POST['btn_submit'])){
         //「-」を押したら減らす
         $('.del').click(function(){
             if(num > 1){
+		num--;
                 $('.addInput li:last-child').remove();
            }
         });
