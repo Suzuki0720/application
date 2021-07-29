@@ -445,7 +445,7 @@ if(!empty($_POST['btn_submit'])){
             height: auto;
             margin-top: 15%;
             margin-right: 5%;
-        　　position: relative; left: 40px;
+        　　position: relative; left: 50px;
         }
 
         #previousBtn span{
