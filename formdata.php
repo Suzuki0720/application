@@ -232,7 +232,7 @@ if(!empty($_POST['btn_submit'])){
     <?php if( !empty($error_message) ): ?>
 	    <ul class="error_message">
 		    <?php foreach( $error_message as $value ): ?>
-			    <li>・<?php echo $value; ?></li>
+			    <li><?php echo $value; ?></li>
 		    <?php endforeach; ?>
 	    </ul>
     <?php endif; ?>
@@ -255,6 +255,13 @@ if(!empty($_POST['btn_submit'])){
     <div>
        
 		<label for="url_name">URL</label>
+
+    <div>
+		<label for="minus"></label>
+		<a class="del" name="minus">－</a>
+		<label for="puls"></label>
+		<a class="add" name="puls">＋</a>
+	</div>
         <ul class="addInput">
 		<li><input id="url_name" type="text" name="url_name1" value=""></li>
 		<li><input id="url_name" type="text" name="url_name2" value=""></li>
@@ -269,12 +276,6 @@ if(!empty($_POST['btn_submit'])){
         </ul>
 	</div>
 	<table>
-	<div>
-		<label for="minus"></label>
-		<a class="del" name="minus">－</a>
-		<label for="puls"></label>
-		<a class="add" name="puls">＋</a>
-	</div>
 	</table>
 	<div>
 		<label for="message">ひと言メッセージ</label>
@@ -295,22 +296,13 @@ if(!empty($_POST['btn_submit'])){
         <div class="YouTube">
             <iframe 
             width="560" height="315" 
-            src=https://www.youtube.com/embed?playlist=<?php echo $value['youtube_url1'];?>,
-            <?php echo $value['youtube_url2'];?>,
-            <?php echo $value['youtube_url3'];?>,
-            <?php echo $value['youtube_url4'];?>,
-            <?php echo $value['youtube_url5'];?>,
-            <?php echo $value['youtube_url6'];?>,
-            <?php echo $value['youtube_url7'];?>,
-            <?php echo $value['youtube_url8'];?>,
-            <?php echo $value['youtube_url9'];?>,
-            <?php echo $value['youtube_url10'];?>
+            src=https://www.youtube.com/embed?playlist=<?php echo $value['youtube_url1'];?>,<?php echo $value['youtube_url2'];?>,<?php echo $value['youtube_url3'];?>,<?php echo $value['youtube_url4'];?>,<?php echo $value['youtube_url5'];?>,<?php echo $value['youtube_url6'];?>,<?php echo $value['youtube_url7'];?>,<?php echo $value['youtube_url8'];?>,<?php echo $value['youtube_url9'];?>,<?php echo $value['youtube_url10'];?>
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe -->
         </div>
-        <p><?php nl2br($value['message']); ?></p>
+        <p><?php echo $value['message']; ?></p>
 	    <hr>
     </article>
     <?php endforeach; ?>
