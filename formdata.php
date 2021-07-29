@@ -211,7 +211,7 @@ if(!empty($_POST['btn_submit'])){
     <meta charset="utf-8">   
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript">
-    $(function(){
+    /*$(function(){
         var size = 10;
         var num = 9;
         //「+」を押したら増やす
@@ -228,7 +228,7 @@ if(!empty($_POST['btn_submit'])){
                 $('.addInput li:last-child').remove();
            }
         });
-    });
+    });*/
     </script>
     </head>
     <body>
@@ -259,12 +259,12 @@ if(!empty($_POST['btn_submit'])){
        
 		<label for="url_name">URL</label>
 
-    <div>
+    <!--div>
 		<label for="minus"></label>
 		<a class="del" name="minus">－</a>
 		<label for="puls"></label>
 		<a class="add" name="puls">＋</a>
-	</div>
+	</div-->
         <ul class="addInput">
 		<li><input id="url_name" type="text" name="url_name1" value=""></li>
         <li><input id="url_name" type="text" name="url_name2" value=""></li>
