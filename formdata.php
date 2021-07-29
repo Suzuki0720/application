@@ -389,7 +389,7 @@ if(!empty($_POST['btn_submit'])){
 
   
 </style>
-	<input type="submit" name="btn_submit" value="投稿">
+	<input type="submit" name="btn_submit" id="btnen" value="投稿">
 </form>
 <hr>
 <section>
