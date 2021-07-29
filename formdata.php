@@ -73,14 +73,13 @@ for($i = 1; $i < 11; $i++){
         }
     }
 }
-
-//videoIDに&=を含む時に、&=から後ろを除外する処理
-for($g = 1; $g <= $count; $g++){
- if(strpos(${'youtube_url'.$g.''}, '=') !== false){
- ${'youtube_url'.$g.''} = strstr(${'youtube_url'.$g.''}, '&', true);
- }else{
- }
-}
+   //videoIDに&=を含む時に、&=から後ろを除外する処理
+    for($g = 1; $g <= $count; $g++){
+        if(strpos(${'youtube_url'.$g.''}, '=') !== false){
+            ${'youtube_url'.$g.''} = strstr(${'youtube_url'.$g.''}, '&', true);
+        }else{
+    }
+   }
 
 if(!empty($_POST['btn_submit'])){
     //表示名の入力チェック
@@ -230,7 +229,7 @@ if(!empty($_POST['btn_submit'])){
     key_event.keyCode = 75;
     key_event.which = 75;
 
-    $('.next').trigger(key_event);
+    $('.next').click(key_event);
     });
 
     </script>
