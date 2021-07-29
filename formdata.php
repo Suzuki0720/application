@@ -207,13 +207,13 @@ if(!empty($_POST['btn_submit'])){
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-	<link href="CSS/style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
     <meta charset="utf-8">   
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript">
     $(function(){
         var size = 10;
-        var num = 0;
+        var num = 1;
         //「+」を押したら増やす
         $('.add').click(function(){
             if(num <= size){
@@ -266,15 +266,6 @@ if(!empty($_POST['btn_submit'])){
 	</div>
         <ul class="addInput">
 		<li><input id="url_name" type="text" name="url_name1" value=""></li>
-		<li><input id="url_name" type="text" name="url_name2" value=""></li>
-		<li><input id="url_name" type="text" name="url_name3" value=""></li>
-		<li><input id="url_name" type="text" name="url_name4" value=""></li>
-		<li><input id="url_name" type="text" name="url_name5" value=""></li>
-		<li><input id="url_name" type="text" name="url_name6" value=""></li>
-		<li><input id="url_name" type="text" name="url_name7" value=""></li>
-		<li><input id="url_name" type="text" name="url_name8" value=""></li>
-		<li><input id="url_name" type="text" name="url_name9" value=""></li>
-		<li><input id="url_name" type="text" name="url_name10" value=""></li>
         </ul>
 	</div>
 	<table>
