@@ -175,8 +175,8 @@ if(!empty($_POST['btn_submit'])){
             // プリペアドステートメントを削除
             $stmt = null;
         }
+    }
         //ファイルを読み込んでHTMLに返す
-        if(empty($error_message)){
             $sql = "SELECT list_name,view_name,
             youtube_url1,
             youtube_url2,
@@ -189,11 +189,10 @@ if(!empty($_POST['btn_submit'])){
             youtube_url9,
             youtube_url10,message,post_date FROM message ORDER BY post_date DESC";
             $message_array = $pdo->query($sql);
-        }
 
     // データベースの接続を閉じる
     $pdo = null;
-}
+
 
 
 ?>
@@ -445,7 +444,7 @@ if(!empty($_POST['btn_submit'])){
             height: auto;
             margin-top: 15%;
             margin-right: 5%;
-        　　position: relative; left: 50px;
+        　　position: relative; left: 40px;
         }
 
         #previousBtn span{
