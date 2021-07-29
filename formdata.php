@@ -410,7 +410,13 @@ if(!empty($_POST['btn_submit'])){
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe -->
         </div>
-        <style>
+        <p><?php echo $value['message']; ?></p>
+	    <hr>
+    </article>
+    <?php endforeach; ?>
+    <?php endif; ?>
+</section>
+<style>
         .YouTube{
             float: left;
             height: 20px;
@@ -459,12 +465,6 @@ if(!empty($_POST['btn_submit'])){
             opacity: 1.0;
         }
         </style>
-        <p><?php echo $value['message']; ?></p>
-	    <hr>
-    </article>
-    <?php endforeach; ?>
-    <?php endif; ?>
-</section>
     </body>
 </html>
 
