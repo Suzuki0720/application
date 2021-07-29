@@ -23,6 +23,7 @@ $youtube_urlsafe = null;
 $youtube_url = null;
 $url = null;
 $youtube_url = null;
+
 $message = array();
 $message_array = array();
 $error_message = array();
@@ -73,21 +74,13 @@ for($i = 1; $i < 11; $i++){
     }
 }
 
-for($j = 1; $j <= $count; $j++){
-    if(strpos(${'youtube_url'.$j.''}, '=') !== false){
-     //k = プレイリストの最大数
-     for($k = 10; $k > 0; $k++){
-      if(strpos(${'youtube_url'.$k.''}, '=') !== false){
-     }else{
-      $youtube_urlsafe = ${'youtube_url'.$j.''};
-      ${'youtube_url'.$j.''} = ${'youtube_url'.$count.''};
-      ${'youtube_url'.$count.''} = $youtube_urlsafe;
-      $count--;
-      break;
-     }
-    }
-   }
-   }
+//videoIDに&=を含む時に、&=から後ろを除外する処理
+for($g = 1; $g <= $count; $g++){
+ if(strpos(${'youtube_url'.$g.''}, '=') !== false){
+ ${'youtube_url'.$g.''} = strstr(${'youtube_url'.$g.''}, '&', true);
+ }else{
+ }
+}
 
 if(!empty($_POST['btn_submit'])){
     //表示名の入力チェック
