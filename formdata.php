@@ -213,7 +213,7 @@ if(!empty($_POST['btn_submit'])){
     <script type="text/javascript">
     $(function(){
         var size = 10;
-        var num = 1;
+        var num = 9;
         //「+」を押したら増やす
         $('.add').click(function(){
             if(num < size){
@@ -224,7 +224,7 @@ if(!empty($_POST['btn_submit'])){
         //「-」を押したら減らす
         $('.del').click(function(){
             if(num > 1){
-		num--;
+                num--;
                 $('.addInput li:last-child').remove();
            }
         });
@@ -267,6 +267,15 @@ if(!empty($_POST['btn_submit'])){
 	</div>
         <ul class="addInput">
 		<li><input id="url_name" type="text" name="url_name1" value=""></li>
+        <li><input id="url_name" type="text" name="url_name2" value=""></li>
+		<li><input id="url_name" type="text" name="url_name3" value=""></li>
+		<li><input id="url_name" type="text" name="url_name4" value=""></li>
+		<li><input id="url_name" type="text" name="url_name5" value=""></li>
+		<li><input id="url_name" type="text" name="url_name6" value=""></li>
+		<li><input id="url_name" type="text" name="url_name7" value=""></li>
+		<li><input id="url_name" type="text" name="url_name8" value=""></li>
+		<li><input id="url_name" type="text" name="url_name9" value=""></li>
+		<li><input id="url_name" type="text" name="url_name10" value=""></li>
         </ul>
 	</div>
 	<table>
@@ -377,53 +386,6 @@ if(!empty($_POST['btn_submit'])){
 #message:hover{
     opacity: 1.0;
   }
-  .YouTube{
-    float: left;
-    height: 20px;
-  }
-
-  .info{
-    height: 20px;
-    margin-left: 50%;
-
-  }
-	
-  #previousBtn,
-  #nextBtn {
-    position: relative;
-    display: inline-block;
-    padding: 3px 10px;
-    border: 2px solid #e41313;
-    background: #fff;
-    border-radius: 2px;
-    color: #e41313;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    height: auto;
-    margin-top: 15%;
-    margin-right: 5%;
-　　position: relative; left: 40px;
-}
-
-  #previousBtn span{
-    text-align: center;
-    opacity: 0.3
-  }
-
-  #nextBtn span{
-    text-align: center;
-    opacity: 0.3
-  }
-
-  #previousBtn span:hover{
-    opacity: 1.0;
-  }
-
-
-  #nextBtn span:hover{
-    opacity: 1.0;
-  }
 
   
 </style>
@@ -448,6 +410,55 @@ if(!empty($_POST['btn_submit'])){
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe -->
         </div>
+        <style>
+        .YouTube{
+            float: left;
+            height: 20px;
+        }
+
+        .info{
+            height: 20px;
+            margin-left: 50%;
+
+        }
+            
+        #previousBtn,
+        #nextBtn {
+            position: relative;
+            display: inline-block;
+            padding: 3px 10px;
+            border: 2px solid #e41313;
+            background: #fff;
+            border-radius: 2px;
+            color: #e41313;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            height: auto;
+            margin-top: 15%;
+            margin-right: 5%;
+        　　position: relative; left: 40px;
+        }
+
+        #previousBtn span{
+            text-align: center;
+            opacity: 0.3
+        }
+
+        #nextBtn span{
+            text-align: center;
+            opacity: 0.3
+        }
+
+        #previousBtn span:hover{
+            opacity: 1.0;
+        }
+
+
+        #nextBtn span:hover{
+            opacity: 1.0;
+        }
+        </style>
         <p><?php echo $value['message']; ?></p>
 	    <hr>
     </article>
