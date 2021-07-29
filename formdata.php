@@ -23,7 +23,7 @@ $youtube_urlsafe = null;
 $youtube_url = null;
 $url = null;
 $youtube_url = null;
-
+$count = 10;
 $message = array();
 $message_array = array();
 $error_message = array();
