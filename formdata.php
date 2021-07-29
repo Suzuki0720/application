@@ -207,21 +207,23 @@ if(!empty($_POST['btn_submit'])){
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-	<link href="style.css" rel="stylesheet">
+	<link href="CSS/style.css" rel="stylesheet">
     <meta charset="utf-8">   
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript">
     $(function(){
-        var size = $('li').length;
-        alert(size);
+        var size = 10;
+        var num = 0;
         //「+」を押したら増やす
         $('.add').click(function(){
-            $('.addInput').append('<li><input id="url_name" type="text" name="url_name[]" value=""></li>');
+            if(num <= size){
+                num++;
+                $('.addInput').append('<li><input id="url_name" type="text" name="url_name'+num+'" value=""></li>');
+            }
         });
         //「-」を押したら減らす
         $('.del').click(function(){
-            size = $('li').length
-            if(size > 1){
+            if(num > 1){
                 $('.addInput li:last-child').remove();
            }
         });
@@ -281,6 +283,158 @@ if(!empty($_POST['btn_submit'])){
 		<label for="message">ひと言メッセージ</label>
 		<textarea id="message" name="message"></textarea>
 	</div>
+    <style>
+	
+  li{
+    list-style: none;
+  }
+	
+  .home{
+      font-size: 20px;
+      padding: 2px 20px;
+      background-color:#0099ff;
+      border-style: none;
+      border-radius: 3px;
+      color:#000;
+      text-decoration: none;
+      margin: 0 auto;
+      position: absolute; top:200px; left:300px;
+    }
+
+  .home:hover{
+      color: white;
+      border-bottom: none;
+    }
+	
+  #btnen {
+      font-size: 20px;
+      padding: 2px 30px;
+      background-color:#0099ff;
+      border-style: none;
+      color:#000;
+      margin-left: 91%;
+    }
+	
+  #btnen:hover{
+    color: white;
+  }
+	
+  .del {
+    width: 25px;
+    height: 25px;
+    background: #0099FF;
+    border-radius: 100%;
+    border-style: none;
+    box-shadow: 1.5px 0 ;
+  }
+
+  .add {
+    width: 25px;
+    height: 25px;
+    background: #0099FF;
+    border-radius: 100%;
+    border-style: none;
+    box-shadow: 1.5px 0 ;
+  }
+	
+  .del:hover,
+  .add:hover{
+    color: #fff;
+  }
+	  
+#view_name{
+    border-color: #94D6DA;
+    border-radius: 10%;
+    border-style: solid;
+    opacity: 0.8;
+  }
+	
+#view_name:hover{
+    opacity: 1.0;
+  }
+
+  #url_name{
+    border-color: #94D6DA;
+    border-radius: 10%;
+    border-style: solid;
+    margin: 0 auto;
+    opacity: 0.8;
+  }
+	
+#url_name:hover{
+    opacity: 1.0;
+  }
+
+  #list_name{
+    border-color: #94D6DA;
+    border-radius: 10%;
+    border-style: solid;
+    opacity: 0.8;
+  }
+	
+#list_name:hover{
+    opacity: 1.0;
+  }
+
+  #message{
+    border-color: #94D6DA;
+    border-radius: 10%;
+    opacity: 0.8;
+  }	  
+
+#message:hover{
+    opacity: 1.0;
+  }
+  .YouTube{
+    float: left;
+    height: 20px;
+  }
+
+  .info{
+    height: 20px;
+    margin-left: 50%;
+
+  }
+	
+  #previousBtn,
+  #nextBtn {
+    position: relative;
+    display: inline-block;
+    padding: 3px 10px;
+    border: 2px solid #e41313;
+    background: #fff;
+    border-radius: 2px;
+    color: #e41313;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    height: auto;
+    margin-top: 15%;
+    margin-right: 5%;
+　　position: relative; left: 40px;
+}
+
+  #previousBtn span{
+    text-align: center;
+    opacity: 0.3
+  }
+
+  #nextBtn span{
+    text-align: center;
+    opacity: 0.3
+  }
+
+  #previousBtn span:hover{
+    opacity: 1.0;
+  }
+
+
+  #nextBtn span:hover{
+    opacity: 1.0;
+  }
+
+  
+</style>
 	<input type="submit" name="btn_submit" value="投稿">
 </form>
 <hr>
