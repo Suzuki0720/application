@@ -216,7 +216,7 @@ if(!empty($_POST['btn_submit'])){
         var num = 1;
         //「+」を押したら増やす
         $('.add').click(function(){
-            if(num <= size){
+            if(num < size){
                 num++;
                 $('.addInput').append('<li><input id="url_name" type="text" name="url_name'+num+'" value=""></li>');
             }
