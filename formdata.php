@@ -23,7 +23,6 @@ $youtube_urlsafe = null;
 $youtube_url = null;
 $url = null;
 $youtube_url = null;
-$count = 10;
 $message = array();
 $message_array = array();
 $error_message = array();
@@ -74,13 +73,21 @@ for($i = 1; $i < 11; $i++){
     }
 }
 
-//videoIDに&=を含む時に、&=から後ろを除外する処理
-for($g = 1; $g <= $count; $g++){
- if(strpos(${'youtube_url'.$g.''}, '=') !== false){
- ${'youtube_url'.$g.''} = strstr(${'youtube_url'.$g.''}, '&', true);
- }else{
- }
-}
+for($j = 1; $j <= $count; $j++){
+    if(strpos(${'youtube_url'.$j.''}, '=') !== false){
+     //k = プレイリストの最大数
+     for($k = 10; $k > 0; $k++){
+      if(strpos(${'youtube_url'.$k.''}, '=') !== false){
+     }else{
+      $youtube_urlsafe = ${'youtube_url'.$j.''};
+      ${'youtube_url'.$j.''} = ${'youtube_url'.$count.''};
+      ${'youtube_url'.$count.''} = $youtube_urlsafe;
+      $count--;
+      break;
+     }
+    }
+   }
+   }
 
 if(!empty($_POST['btn_submit'])){
     //表示名の入力チェック
@@ -101,7 +108,9 @@ if(!empty($_POST['btn_submit'])){
     if( !empty($_POST['message']) ) {
 	$clean['message'] = htmlspecialchars( $_POST['message'], ENT_QUOTES, 'UTF-8');
         $clean['message'] = preg_replace( '/\\r\\n|\\n|\\r/', '<br>', $clean['message']);
-	}
+	}else{
+        $error_message[] = 'メッセージを入れてください。';
+    }
     
     if( empty($_POST['url_name1']) ) {
 		$error_message[] = 'URLを入れてください。';
@@ -222,6 +231,15 @@ if(!empty($_POST['btn_submit'])){
            }
         });
     });*/
+    $(function(){
+    var key_event = $.Event('keyup');
+
+    key_event.keyCode = 75;
+    key_event.which = 75;
+
+    $('.next').trigger(key_event);
+    });
+
     </script>
     </head>
     <body>
@@ -405,7 +423,7 @@ if(!empty($_POST['btn_submit'])){
     </div>
     <div>
 	<button id="previousBtn" name="previousBtn"><span>戻る</span></button>  
-        <button id="nextBtn" name="nextBtn"><span>次へ</span></button>
+        <button id="nextBtn" name="nextBtn" class="next"><span>次へ</span></button>
 	</div>
 
         <style>
